@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+espeak-wrapper() {
+	 espeak -s 200 "$@" 2>/dev/null
+}
+
+echo $(date)"     $1"
+
+sleep 30
+
+espeak-wrapper "thirty seconds"
+
+for number in one two three four five six seven eight nine ten \
+	 eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty; do
+	 sleep 30
+	 espeak-wrapper "$number minutes"
+	 sleep 30
+	 espeak-wrapper "$number minutes thirty seconds"
+done
