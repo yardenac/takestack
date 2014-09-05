@@ -1,7 +1,15 @@
 #!/usr/bin/bash
 
+. /usr/share/ppz/bash.functions
+
 espeak-wrapper() {
 	 espeak -s 200 "$@" 2>/dev/null
+}
+
+espeak-wrapper() {
+	 mm --end=0.05 /usr/share/sounds/alsa/Noise.wav &>/dev/null
+	 echo -n $(date)"     "
+	 echo_yellow "$@"
 }
 
 echo $(date)"     $1"
