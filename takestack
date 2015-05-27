@@ -2,12 +2,16 @@
 
 . /usr/share/ppz/bash.functions
 
-espeak-wrapper() {
+espeak-wrapper-harsh() {
 	 espeak -s 200 "$@" 2>/dev/null
 }
 
-espeak-wrapper() {
+espeak-wrapper-soft() {
 	 mm --end=0.05 /usr/share/sounds/alsa/Noise.wav &>/dev/null
+}
+
+espeak-wrapper() {
+	 espeak-wrapper-harsh "$@"
 	 echo -n $(date)"     "
 	 echo_yellow "$@"
 }
